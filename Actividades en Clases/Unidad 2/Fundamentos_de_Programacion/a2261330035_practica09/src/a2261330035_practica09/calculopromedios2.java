@@ -1,0 +1,44 @@
+package a2261330035_practica09;
+
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+
+public class calculopromedios2 {
+
+	public static void main(String[] args) throws IOException {
+        int ciclop, cicloh, nalum, nparcial, cal, scal;
+        double palum, sprom, pgeneral;
+        String salida = "";
+        BufferedReader entrada = new BufferedReader(new InputStreamReader(System.in));
+        
+        System.out.println("cuantos alumnos vas a evaluar");
+        nalum = Integer.parseInt(entrada.readLine());
+        System.out.println("cuantos parciales vas a evaluar");
+        nparcial = Integer.parseInt(entrada.readLine());
+        
+        ciclop = 0;
+        sprom = 0;
+        
+        do {
+            ciclop++;
+            cicloh = 0;
+            scal = 0;
+            
+            do {
+                cicloh++;
+                System.out.println("calificacion del alumno " + ciclop + " parcial " + cicloh);
+                cal = Integer.parseInt(entrada.readLine());
+                scal += cal;
+            } while (cicloh < nparcial);
+            
+            palum = (double) scal / nparcial;
+            salida += "El promedio del alumno " + ciclop + " fue " + palum + "\n";
+            sprom += palum;
+        } while (ciclop < nalum);
+        
+        pgeneral = sprom / nalum;
+        salida += "El promedio general fue " + pgeneral;
+        System.out.println(salida);
+    }
+}
